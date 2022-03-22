@@ -1,0 +1,7 @@
+//config
+//when import partial file, no need to include _.
+//partial file can only be imported, cannot be used independently.
+@import 'variables';
+
+//layout
+@import 'reboot';

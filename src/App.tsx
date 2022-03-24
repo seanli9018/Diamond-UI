@@ -1,5 +1,6 @@
 import React from 'react'
 import Button, { ButtonSize, ButtonType } from './components/Button/Button'
+import Alert, { AlertType } from './components/Alert/Alert'
 
 function App() {
   return (
@@ -21,6 +22,8 @@ function App() {
         <Button btnType={ButtonType.Link} disabled href="www.google.com">
           Disabled Link
         </Button>
+        <Alert message="test alert message" header="Info" alertType={AlertType.Warning} />
+        <Alert message="test alert message" header="Info2" alertType={AlertType.Danger} />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>

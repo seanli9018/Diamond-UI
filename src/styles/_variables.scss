@@ -203,6 +203,10 @@ $btn-border-radius-sm: $border-radius-sm !default;
 $btn-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
   border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out !default;
 
+// alert-size
+$alert-font-size: $font-size-base !default;
+$alert-header-font-size: $h5-font-size !default;
+
 // menu
 $menu-border-width: $border-width !default;
 $menu-border-color: $border-color !default;

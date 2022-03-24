@@ -1,0 +1,22 @@
+.alert-container {
+  position: fixed;
+  display: block;
+  @include alert-style($primary, $white);
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: $alert-font-size;
+}
+
+.alert-header {
+  font-size: $alert-header-font-size;
+}
+
+.alert-success {
+  @include alert-style($success, $white);
+}
+.alert-danger {
+  @include alert-style($danger, $white);
+}
+.alert-warning {
+  @include alert-style($warning, $white);
+}

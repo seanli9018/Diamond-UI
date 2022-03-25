@@ -1,14 +1,19 @@
 .alert-container {
-  position: fixed;
+  position: relative;
   display: block;
   @include alert-style($primary, $white);
-  padding: 10px 20px;
-  border-radius: 6px;
+  padding: $alert-padding-y $alert-padding-x;
+  margin-bottom: $alert-margin-bottom;
+  border-radius: $alert-border-radius;
   font-size: $alert-font-size;
+  transition: $alert-transition;
 }
 
-.alert-header {
-  font-size: $alert-header-font-size;
+.alert-close-btn {
+  position: absolute;
+  top: $alert-close-btn-top;
+  right: $alert-close-btn-right;
+  cursor: pointer;
 }
 
 .alert-success {

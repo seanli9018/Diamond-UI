@@ -205,7 +205,23 @@ $btn-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
 
 // alert-size
 $alert-font-size: $font-size-base !default;
-$alert-header-font-size: $h5-font-size !default;
+
+// alert-padding and margin
+$alert-padding-x: 1.5rem !default;
+$alert-padding-y: 0.75rem !default;
+$alert-margin-bottom: 0.75rem !default;
+
+// alert-border-radius
+$alert-border-radius: 0.25rem !default;
+
+// close btn position
+$alert-close-btn-top: 0.25rem !default;
+$alert-close-btn-right: 0.25rem !default;
+
+//alert transition
+// TODO
+$alert-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+  border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out !default;
 
 // menu
 $menu-border-width: $border-width !default;

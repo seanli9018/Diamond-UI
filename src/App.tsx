@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Button, { ButtonSize, ButtonType } from './components/Button/Button'
 import Alert, { AlertType } from './components/Alert/Alert'
 
 function App() {
+  const [sAlert, setSAlert] = useState(true)
   return (
     <div className="App">
       <header className="App-header">
@@ -22,11 +23,31 @@ function App() {
         <Button btnType={ButtonType.Link} disabled href="www.google.com">
           Disabled Link
         </Button>
-        <Alert message="test alert message" header="Info" alertType={AlertType.Warning} />
-        <Alert message="test alert message" header="Info2" alertType={AlertType.Danger} />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
+        <Alert alertType={AlertType.Warning}>
+          <h3>Warning Header</h3>
+          <div>This is a long description!</div>
+        </Alert>
+        <Alert alertType={AlertType.Danger} autoClose={3000}>
+          <h3>Danger Header</h3>
+          <div>This is a long description!</div>
+        </Alert>
+        <Alert
+          closeLabel="Close Alert"
+          onClose={() => {
+            console.log('closed')
+          }}
+          show={sAlert}
+        >
+          <h3>Default Alert Header</h3>
+          <div>This is a long description!</div>
+        </Alert>
+        <Button
+          onClick={() => {
+            setSAlert(prevAlert => !prevAlert)
+          }}
+        >
+          setSAlert
+        </Button>
         <a
           className="App-link"
           href="https://reactjs.org"

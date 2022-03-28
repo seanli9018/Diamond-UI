@@ -8,7 +8,7 @@ export enum AlertType {
   Warning = 'warning',
 }
 
-interface BaseAlertProps {
+export interface AlertProps {
   alertType?: AlertType
   show?: boolean
   showClose?: boolean
@@ -19,7 +19,7 @@ interface BaseAlertProps {
   className?: string
 }
 
-const Alert: React.FC<BaseAlertProps> = props => {
+const Alert: React.FC<AlertProps> = props => {
   const { alertType, show, showClose, closeLabel, onClose, autoClose, children, className } = props
   const [showAlert, setShowAlert] = useState(() => {
     if (show === undefined) {
@@ -63,7 +63,7 @@ const Alert: React.FC<BaseAlertProps> = props => {
   return (
     <>
       {showAlert && (
-        <div className={classes}>
+        <div className={classes} data-testid="alert-container">
           {children}
           {showClose && (
             <span

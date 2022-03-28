@@ -3,7 +3,7 @@ import Button, { ButtonSize, ButtonType } from './components/Button/Button'
 import Alert, { AlertType } from './components/Alert/Alert'
 
 function App() {
-  const [sAlert, setSAlert] = useState(true)
+  const [sAlert, setSAlert] = useState(false)
   return (
     <div className="App">
       <header className="App-header">

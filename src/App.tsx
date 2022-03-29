@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import Button, { ButtonSize, ButtonType } from './components/Button/Button'
 import Alert, { AlertType } from './components/Alert/Alert'
+import Menu from './components/Menu/Menu'
+import MenuItem from './components/Menu/MenuItem'
 
 function App() {
   const [sAlert, setSAlert] = useState(false)
@@ -48,6 +50,19 @@ function App() {
         >
           setSAlert
         </Button>
+        <Menu
+          defaultIndex={0}
+          onSelect={index => {
+            console.log(index)
+          }}
+          mode="vertical"
+        >
+          <MenuItem index={0}>Hello1</MenuItem>
+          <MenuItem index={1} disabled>
+            Hello2
+          </MenuItem>
+          <MenuItem index={2}>Hello3</MenuItem>
+        </Menu>
         <a
           className="App-link"
           href="https://reactjs.org"

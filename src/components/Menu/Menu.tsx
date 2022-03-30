@@ -38,7 +38,7 @@ const Menu: React.FC<MenuProps> = props => {
     onSelect: handleSelect,
   }
   return (
-    <ul className={classes} style={style}>
+    <ul className={classes} style={style} data-testid="menu-container">
       <MenuContext.Provider value={passedContext}>{children}</MenuContext.Provider>
     </ul>
   )

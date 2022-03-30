@@ -17,11 +17,9 @@ const testVerProps: MenuProps = {
 const generateMenu = (props: MenuProps): React.ReactElement => {
   return (
     <Menu {...props}>
-      <MenuItem index={0}>active</MenuItem>
-      <MenuItem index={1} disabled>
-        disabled
-      </MenuItem>
-      <MenuItem index={2}>tab3</MenuItem>
+      <MenuItem>active</MenuItem>
+      <MenuItem disabled>disabled</MenuItem>
+      <MenuItem>tab3</MenuItem>
     </Menu>
   )
 }

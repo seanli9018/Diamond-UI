@@ -3,6 +3,7 @@ import Button, { ButtonSize, ButtonType } from './components/Button/Button'
 import Alert, { AlertType } from './components/Alert/Alert'
 import Menu from './components/Menu/Menu'
 import MenuItem from './components/Menu/MenuItem'
+import SubMenu from './components/Menu/SubMenu'
 
 function App() {
   const [sAlert, setSAlert] = useState(false)
@@ -55,13 +56,14 @@ function App() {
           onSelect={index => {
             console.log(index)
           }}
-          mode="vertical"
         >
-          <MenuItem index={0}>Hello1</MenuItem>
-          <MenuItem index={1} disabled>
-            Hello2
-          </MenuItem>
-          <MenuItem index={2}>Hello3</MenuItem>
+          <MenuItem>Hello1</MenuItem>
+          <MenuItem disabled>Hello2</MenuItem>
+          <SubMenu title="dropdown">
+            <MenuItem>dropdown 1</MenuItem>
+            <MenuItem>dropdown 2</MenuItem>
+          </SubMenu>
+          <MenuItem>Hello3</MenuItem>
         </Menu>
         <a
           className="App-link"

@@ -52,10 +52,12 @@ function App() {
           setSAlert
         </Button>
         <Menu
-          defaultIndex={0}
+          defaultIndex={'0'}
           onSelect={index => {
             console.log(index)
           }}
+          mode="vertical"
+          defaultOpenSubMenus={['2']}
         >
           <MenuItem>Hello1</MenuItem>
           <MenuItem disabled>Hello2</MenuItem>

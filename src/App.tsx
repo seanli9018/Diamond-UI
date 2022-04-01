@@ -56,7 +56,7 @@ function App() {
           onSelect={index => {
             console.log(index)
           }}
-          mode="vertical"
+          // mode="vertical"
           defaultOpenSubMenus={['2']}
         >
           <MenuItem>Hello1</MenuItem>

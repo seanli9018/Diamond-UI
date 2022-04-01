@@ -65,7 +65,11 @@ const SubMenu: React.FC<SubMenuProps> = ({ index, title, children, className }) 
         console.error('Warning: SubMenu has a non MenuItem component child.')
       }
     })
-    return <ul className={subMenuClasses}>{childrenComponent}</ul>
+    return (
+      <ul className={subMenuClasses} data-testid="submenu-dropdown-container">
+        {childrenComponent}
+      </ul>
+    )
   }
 
   return (

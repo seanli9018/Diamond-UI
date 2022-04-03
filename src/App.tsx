@@ -4,12 +4,14 @@ import Alert, { AlertType } from './components/Alert/Alert'
 import Menu from './components/Menu/Menu'
 import MenuItem from './components/Menu/MenuItem'
 import SubMenu from './components/Menu/SubMenu'
+import Icon from './components/Icon/Icon'
 
 function App() {
   const [sAlert, setSAlert] = useState(false)
   return (
     <div className="App">
       <header className="App-header">
+        <Icon icon="coffee" theme="danger" size="10x" />
         <Button btnType={ButtonType.Primary}>Primary Button</Button>
         <Button btnType={ButtonType.Danger}>Danger Button</Button>
         <Button btnType={ButtonType.Info}>Info Button</Button>

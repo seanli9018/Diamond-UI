@@ -1,7 +1,9 @@
-import React, { useState, useContext, FunctionComponentElement, cloneElement } from 'react'
+import React, { useState, useContext, FunctionComponentElement, cloneElement, useRef } from 'react'
 import classNames from 'classnames'
+import { CSSTransition } from 'react-transition-group'
 import { MenuContext } from './Menu'
 import { MenuItemProps } from './MenuItem'
+import Icon from '../Icon/Icon'
 
 export interface SubMenuProps {
   index?: string
@@ -14,8 +16,11 @@ const SubMenu: React.FC<SubMenuProps> = ({ index, title, children, className }) 
   const openedSubMenus = context.defaultOpenSubMenus as Array<string>
   const isOpened = index && context.mode === 'vertical' ? openedSubMenus.includes(index) : false
   const [menuOpen, setMenuOpen] = useState(isOpened)
+  const cssTransitionNodeRef = useRef(null)
   const classes = classNames('menu-item submenu-item', className, {
     'is-active': context.index === index,
+    'is-opened': menuOpen,
+    'is-vertical': context.mode === 'vertical',
   })
   const handleClick = (e: React.MouseEvent) => {
     e.preventDefault()
@@ -66,9 +71,20 @@ const SubMenu: React.FC<SubMenuProps> = ({ index, title, children, className }) 
       }
     })
     return (
-      <ul className={subMenuClasses} data-testid="submenu-dropdown-container">
-        {childrenComponent}
-      </ul>
+      <CSSTransition
+        nodeRef={cssTransitionNodeRef}
+        in={menuOpen}
+        timeout={300}
+        classNames="zoom-in-top"
+      >
+        <ul
+          ref={cssTransitionNodeRef}
+          className={subMenuClasses}
+          data-testid="submenu-dropdown-container"
+        >
+          {childrenComponent}
+        </ul>
+      </CSSTransition>
     )
   }
 
@@ -76,6 +92,7 @@ const SubMenu: React.FC<SubMenuProps> = ({ index, title, children, className }) 
     <li key={index} className={classes} {...hoverEvents}>
       <div className="submenu-title" {...clickEvents}>
         {title}
+        <Icon icon="angle-down" className="arrow-icon" />
       </div>
       {renderChildren()}
     </li>

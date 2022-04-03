@@ -35,6 +35,7 @@ $danger: $red !default;
 $light: $gray-100 !default;
 $dark: $gray-800 !default;
 
+// for scss map iteration.
 $theme-colors: (
   'primary': $primary,
   'secondary': $secondary,

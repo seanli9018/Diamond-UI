@@ -51,11 +51,11 @@
     }
   }
   .submenu {
-    display: none;
+    //no need to use display: none --> block, taking over by react transition group animation (unMountOnExit)
+    // display: none;
     list-style: none;
     padding-left: 0;
     white-space: nowrap;
-    //transition: $menu-transition;
     .menu-item {
       padding: $menu-item-padding-y $menu-item-padding-x;
       cursor: pointer;
@@ -68,9 +68,10 @@
       }
     }
   }
-  .submenu.menu-opened {
-    display: block;
-  }
+  // .submenu.menu-opened {
+  //   //no need to use display: none --> block, taking over by react transition group animation (unMountOnExit)
+  //   display: block;
+  // }
 }
 .menu-horizontal {
   > .menu-item {
@@ -80,8 +81,8 @@
     position: absolute;
     background: $white;
     z-index: 100;
-    top: calc(100% + 8px);
-    left: 0;
+    top: calc(100% + 14px);
+    left: -16px;
     border: $menu-border-width solid $menu-border-color;
     box-shadow: $submenu-box-shadow;
   }

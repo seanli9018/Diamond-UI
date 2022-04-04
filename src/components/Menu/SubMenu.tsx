@@ -1,6 +1,6 @@
 import React, { useState, useContext, FunctionComponentElement, cloneElement, useRef } from 'react'
 import classNames from 'classnames'
-import { CSSTransition } from 'react-transition-group'
+import Transition from '../Transition/Transition'
 import { MenuContext } from './Menu'
 import { MenuItemProps } from './MenuItem'
 import Icon from '../Icon/Icon'
@@ -16,7 +16,7 @@ const SubMenu: React.FC<SubMenuProps> = ({ index, title, children, className }) 
   const openedSubMenus = context.defaultOpenSubMenus as Array<string>
   const isOpened = index && context.mode === 'vertical' ? openedSubMenus.includes(index) : false
   const [menuOpen, setMenuOpen] = useState(isOpened)
-  const cssTransitionNodeRef = useRef(null)
+  const subMenuContainerRef = useRef(null)
   const classes = classNames('menu-item submenu-item', className, {
     'is-active': context.index === index,
     'is-opened': menuOpen,
@@ -71,20 +71,18 @@ const SubMenu: React.FC<SubMenuProps> = ({ index, title, children, className }) 
       }
     })
     return (
-      <CSSTransition
-        nodeRef={cssTransitionNodeRef}
+      <Transition
         in={menuOpen}
         timeout={300}
-        classNames="zoom-in-top"
+        animation="zoom-in-bottom"
+        nodeRef={subMenuContainerRef}
+        unmountOnExit
+        style={{ position: 'relative', backgroundColor: 'red' }}
       >
-        <ul
-          ref={cssTransitionNodeRef}
-          className={subMenuClasses}
-          data-testid="submenu-dropdown-container"
-        >
+        <ul className={subMenuClasses} data-testid="submenu-dropdown-container">
           {childrenComponent}
         </ul>
-      </CSSTransition>
+      </Transition>
     )
   }
 

@@ -1,13 +1,18 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import Button, { ButtonSize, ButtonType } from './components/Button/Button'
 import Alert, { AlertType } from './components/Alert/Alert'
 import Menu from './components/Menu/Menu'
 import MenuItem from './components/Menu/MenuItem'
 import SubMenu from './components/Menu/SubMenu'
 import Icon from './components/Icon/Icon'
-
-function App() {
+import Transition from './components/Transition/Transition'
+const TestComp = () => {
+  return <div>Hello ~!!!!</div>
+}
+const App: React.FC = () => {
   const [sAlert, setSAlert] = useState(false)
+  const [show, setShow] = useState(false)
+  const testRef = useRef(null)
   return (
     <div className="App">
       <header className="App-header">
@@ -77,6 +82,19 @@ function App() {
         >
           Learn React
         </a>
+        <Button size={ButtonSize.Large} onClick={() => setShow(!show)}>
+          Toggle
+        </Button>
+        <Transition nodeRef={testRef} in={show} timeout={300} animation="zoom-in-bottom">
+          <a
+            className="App-link"
+            href="https://reactjs.org"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Learn React
+          </a>
+        </Transition>
       </header>
     </div>
   )

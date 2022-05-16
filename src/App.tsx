@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react'
-import Button, { ButtonSize, ButtonType } from './components/Button/Button'
+import Button from './components/Button/Button'
 import Alert, { AlertType } from './components/Alert/Alert'
 import Menu from './components/Menu/Menu'
 import MenuItem from './components/Menu/MenuItem'
@@ -15,22 +15,9 @@ const App: React.FC = () => {
     <div className="App">
       <header className="App-header">
         <Icon icon="coffee" theme="danger" size="10x" />
-        <Button btnType={ButtonType.Primary}>Primary Button</Button>
-        <Button btnType={ButtonType.Danger}>Danger Button</Button>
-        <Button btnType={ButtonType.Info}>Info Button</Button>
-        <Button btnType={ButtonType.Warning}>Warning Button</Button>
-        <Button btnType={ButtonType.Success}>Success Button</Button>
+        <Button btnType="primary">Primary Button</Button>
         <Button disabled>Disabled Default Button</Button>
-        <Button size={ButtonSize.Large} btnType={ButtonType.Primary}>
-          Large Primary
-        </Button>
-        <Button size={ButtonSize.Small}>Button Small</Button>
-        <Button btnType={ButtonType.Link} href="www.google.com">
-          Link Button
-        </Button>
-        <Button btnType={ButtonType.Link} disabled href="www.google.com">
-          Disabled Link
-        </Button>
+        <Button size="sm">Button Small</Button>
         <Alert alertType={AlertType.Warning}>
           <h3>Warning Header</h3>
           <div>This is a long description!</div>
@@ -80,7 +67,7 @@ const App: React.FC = () => {
         >
           Learn React
         </a>
-        <Button size={ButtonSize.Large} onClick={() => setShow(!show)}>
+        <Button size="lg" onClick={() => setShow(!show)}>
           Toggle
         </Button>
         <Transition nodeRef={testRef} in={show} timeout={300} animation="zoom-in-bottom">
